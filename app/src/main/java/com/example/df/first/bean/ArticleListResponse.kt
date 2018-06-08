@@ -1,4 +1,7 @@
 package com.example.df.first.bean
 
-class ArticleListResponse {
-}
+data class ArticleListResponse(
+    var errorCode: Int,
+    var errorMsg: String?,
+    var data: Data
+)
