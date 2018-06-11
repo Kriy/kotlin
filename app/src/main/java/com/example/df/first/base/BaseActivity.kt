@@ -20,7 +20,7 @@ abstract class BaseActivity :AppCompatActivity(){
         initImmersionBar()
     }
 
-    protected fun initImmersionBar(){
+    open protected fun initImmersionBar(){
         immersionBar = ImmersionBar.with(this)
         immersionBar.init()
     }

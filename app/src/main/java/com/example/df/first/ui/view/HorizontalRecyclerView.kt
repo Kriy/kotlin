@@ -1,4 +1,4 @@
-package top.jowanxu.wanandroidclient.ui.view
+package com.example.df.first.ui.view
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView

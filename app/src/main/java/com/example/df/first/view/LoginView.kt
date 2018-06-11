@@ -6,7 +6,7 @@ interface LoginView {
 
     fun loginSuccess(result: LoginResponse)
 
-    fun loginFailed(errorMessage: String)
+    fun loginFailed(errorMessage: String?)
 
     fun registerSuccess(result: LoginResponse)
 
