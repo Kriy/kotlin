@@ -45,7 +45,9 @@
         <activity
             android:name=".ui.activity.AboutActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.activity.ContentActivity"></activity>
+        <activity android:name=".ui.activity.ContentActivity" />
+        <activity android:name=".ui.activity.TypeContentActivity" />
+        <activity android:name=".ui.activity.SearchActivity"></activity>
     </application>
 
 </manifest>

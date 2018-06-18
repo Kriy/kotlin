@@ -10,6 +10,7 @@ import android.view.MenuItem
 import android.widget.LinearLayout
 import com.example.df.first.R
 import com.example.df.first.R.id.toolbar
+import com.example.df.first.R.id.webContent
 import com.example.df.first.base.BaseActivity
 import com.example.df.first.base.Preference
 import com.example.df.first.bean.HomeListResponse
