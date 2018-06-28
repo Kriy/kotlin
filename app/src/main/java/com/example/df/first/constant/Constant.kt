@@ -24,7 +24,7 @@ object Constant {
     const val CONTENT_TARGET_KEY = "target"
 
     const val CONTENT_SHARE_TYPE = "text/plain"
-    const val SEAECH_KEY = "search"
+    const val SEARCH_KEY = "search"
     const val LIKE_KEY = "like"
 
     const val MAIN_REQUEST_CODE = 100

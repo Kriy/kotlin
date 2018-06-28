@@ -11,7 +11,7 @@ interface CommonUseFragmentView {
             hotResult: HotKeyResponse
     )
 
-    fun getFriendListFailed(errorMessage: String)
+    fun getFriendListFailed(errorMessage: String?)
 
     fun getFriendListZero()
 }

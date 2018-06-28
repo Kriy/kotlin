@@ -4,7 +4,7 @@ import android.app.Fragment
 
 abstract class BaseFragment : Fragment() {
 
-    protected val isFirst: Boolean = true
+    protected var isFirst: Boolean = true
 
     protected abstract fun cancelRequest()
 
