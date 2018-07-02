@@ -1,6 +1,5 @@
 package com.example.df.first.ui.activity
 
-import android.support.v7.app.AppCompatActivity
 import com.example.df.first.base.BaseActivity
 
 class MainActivity : BaseActivity() {
@@ -13,6 +12,7 @@ class MainActivity : BaseActivity() {
     private val fragmentManager by lazy{
         supportFragmentManager
     }
+
 
     override
     fun setLayoutId(): Int {
