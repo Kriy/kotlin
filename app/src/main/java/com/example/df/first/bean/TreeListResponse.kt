@@ -14,7 +14,7 @@ data class TreeListResponse(
             var parentChapterId: Int,
             var order: Int,
             var visible: Int,
-            var children: List<Children>
+            var children: List<Children>?
     ) : Serializable {
         data class Children(
                 var id: Int,
