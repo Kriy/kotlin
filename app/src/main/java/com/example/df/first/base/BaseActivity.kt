@@ -1,11 +1,13 @@
 package com.example.df.first.base
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
 import com.gyf.barlibrary.ImmersionBar
 
+@SuppressLint("Registered")
 abstract class BaseActivity :AppCompatActivity(){
 
     protected lateinit var immersionBar: ImmersionBar

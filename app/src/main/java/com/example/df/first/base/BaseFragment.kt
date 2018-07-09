@@ -1,6 +1,7 @@
 package com.example.df.first.base
 
-import android.app.Fragment
+import android.support.v4.app.Fragment
+
 
 abstract class BaseFragment : Fragment() {
 
