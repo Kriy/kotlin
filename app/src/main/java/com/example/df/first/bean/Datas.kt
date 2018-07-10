@@ -2,7 +2,7 @@ package com.example.df.first.bean
 
 data class Datas(
         var id: Int,
-        var originId: String,
+        var originId: Int,
         var title: String,
         var chapterId: Int,
         var chapterName: String?,
