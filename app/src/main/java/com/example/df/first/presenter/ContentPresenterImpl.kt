@@ -4,9 +4,9 @@ import com.example.df.first.bean.HomeListResponse
 import com.example.df.first.model.CollectArticleModel
 import com.example.df.first.model.CollectOutsideArticleModel
 import com.example.df.first.model.CollectOutsideArticleModelImpl
-import com.example.df.first.model.SearchModelImpl
 import com.example.df.first.presenter.HomePresenter
 import com.example.df.first.view.CollectArticleView
+import top.jowanxu.wanandroidclient.model.SearchModelImpl
 
 class ContentPresenterImpl(private val collectArticleView: CollectArticleView) :
         HomePresenter.OnCollectArticleListener, HomePresenter.OnCollectOutsideArticleListener {
