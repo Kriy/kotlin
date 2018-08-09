@@ -6,7 +6,7 @@ interface TypeArticleFragmentView {
 
     fun getTypeArticleListSuccess(result: ArticleListResponse)
 
-    fun getTypeArticleListFailed(errorMessage: String)
+    fun getTypeArticleListFailed(errorMessage: String?)
 
     fun getTypeArticleListZero()
 

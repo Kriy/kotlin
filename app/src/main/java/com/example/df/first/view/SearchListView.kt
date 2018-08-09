@@ -8,7 +8,7 @@ interface SearchListView {
 
     fun getSearchListFailed(errorMessage: String?)
 
-    fun getsearchListZero()
+    fun getSearchListZero()
 
     fun getSearchListSmall(result: HomeListResponse)
 

@@ -3,21 +3,18 @@ package com.example.df.first.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.SearchView
 import android.view.Menu
 import android.view.MenuItem
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.example.df.first.R
-import com.example.df.first.R.id.toolbar
 import com.example.df.first.adapter.SearchAdapter
 import com.example.df.first.base.BaseActivity
 import com.example.df.first.base.Preference
 import com.example.df.first.bean.Datas
 import com.example.df.first.bean.HomeListResponse
 import com.example.df.first.constant.Constant
-import com.example.df.first.presenter.SearchPresenter
 import com.example.df.first.presenter.SearchPresenterImpl
 import com.example.df.first.view.CollectArticleView
 import com.example.df.first.view.SearchListView
@@ -25,12 +22,8 @@ import kotlinx.android.synthetic.main.activity_content.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import toast
 import top.jowanxu.wanandroidclient.ui.activity.ContentActivity
-import java.util.concurrent.CompletionService
 
 class SearchActivity : BaseActivity(), SearchListView, CollectArticleView {
-    override fun getsearchListZero() {
-
-    }
 
     /**
      * Data List
