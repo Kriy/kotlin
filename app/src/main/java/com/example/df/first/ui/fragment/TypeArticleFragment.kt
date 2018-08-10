@@ -17,12 +17,12 @@ import com.example.df.first.bean.Datas
 import com.example.df.first.bean.HomeListResponse
 import com.example.df.first.constant.Constant
 import com.example.df.first.presenter.TypeArticlePresenterImpl
+import com.example.df.first.ui.activity.ContentActivity
 import com.example.df.first.ui.activity.LoginActivity
 import com.example.df.first.view.CollectArticleView
 import com.example.df.first.view.TypeArticleFragmentView
 import kotlinx.android.synthetic.main.fragment_type_content.*
 import toast
-import top.jowanxu.wanandroidclient.ui.activity.ContentActivity
 
 class TypeArticleFragment : BaseFragment(), TypeArticleFragmentView, CollectArticleView {
 

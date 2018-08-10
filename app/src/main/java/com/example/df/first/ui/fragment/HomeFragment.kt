@@ -21,6 +21,7 @@ import com.example.df.first.bean.Datas
 import com.example.df.first.bean.HomeListResponse
 import com.example.df.first.constant.Constant
 import com.example.df.first.presenter.HomeFragmentPresenterImpl
+import com.example.df.first.ui.activity.ContentActivity
 import com.example.df.first.ui.activity.LoginActivity
 import com.example.df.first.ui.activity.TypeContentActivity
 import com.example.df.first.ui.view.HomeFragmentView
@@ -32,7 +33,6 @@ import kotlinx.coroutines.experimental.Job
 import kotlinx.coroutines.experimental.delay
 import kotlinx.coroutines.experimental.launch
 import toast
-import top.jowanxu.wanandroidclient.ui.activity.ContentActivity
 
 class HomeFragment : BaseFragment(), HomeFragmentView, CollectArticleView {
 

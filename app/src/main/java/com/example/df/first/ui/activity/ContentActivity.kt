@@ -1,4 +1,4 @@
-package top.jowanxu.wanandroidclient.ui.activity
+package com.example.df.first.ui.activity
 
 import android.content.Intent
 import android.net.Uri

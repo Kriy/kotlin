@@ -18,13 +18,13 @@ import com.example.df.first.bean.FriendListResponse
 import com.example.df.first.bean.HotKeyResponse
 import com.example.df.first.constant.Constant
 import com.example.df.first.presenter.CommonUseFragmentPresenterImpl
+import com.example.df.first.ui.activity.ContentActivity
 import com.example.df.first.ui.activity.SearchActivity
 import com.example.df.first.view.CommonUseFragmentView
 import com.zhy.view.flowlayout.TagFlowLayout
 import inflater
 import kotlinx.android.synthetic.main.fragment_common.*
 import toast
-import top.jowanxu.wanandroidclient.ui.activity.ContentActivity
 
 class CommonUseFragment : BaseFragment(), CommonUseFragmentView {
 
@@ -67,13 +67,14 @@ class CommonUseFragment : BaseFragment(), CommonUseFragmentView {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        mainView?.let {
-            mainView = inflater.inflate(R.layout.fragment_common, container, false) as LinearLayout
+        mainView?:let {
+            mainView = inflater.inflate(R.layout.fragment_common, container, false)
             flowLayout = activity.inflater(R.layout.common_hot) as LinearLayout
-            hotTagFlowLayout = flowLayout.findViewById(R.id.hotFlowlayout)
-            commonUseTagFlowLayout = flowLayout.findViewById(R.id.commonUseFlowLayout)
-            bookmarkTitle = flowLayout.findViewById(R.id.bookmarkTitle)
-            bookmarkTagFlowLayout = flowLayout.findViewById(R.id.bookmarkFlowLayout)
+            hotTagFlowLayout = flowLayout.findViewById<TagFlowLayout>(R.id.hotFlowlayout)
+            commonUseTagFlowLayout =
+                    flowLayout.findViewById<TagFlowLayout>(R.id.commonUseFlowLayout)
+            bookmarkTitle = flowLayout.findViewById<TextView>(R.id.bookmarkTitle)
+            bookmarkTagFlowLayout = flowLayout.findViewById<TagFlowLayout>(R.id.bookmarkFlowLayout)
         }
         return mainView
     }

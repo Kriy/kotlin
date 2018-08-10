@@ -8,7 +8,6 @@
     android:orientation="vertical"
     tools:context=".ui.activity.MainActivity">
 
-
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -33,7 +32,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        tools:context="top.jowanxu.wanandroidclient.ui.activity.MainActivity"
         tools:openDrawer="start">
 
         <FrameLayout

@@ -21,7 +21,6 @@ import com.example.df.first.view.SearchListView
 import kotlinx.android.synthetic.main.activity_content.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import toast
-import top.jowanxu.wanandroidclient.ui.activity.ContentActivity
 
 class SearchActivity : BaseActivity(), SearchListView, CollectArticleView {
 

@@ -1,7 +1,6 @@
 package com.example.df.first.ui.activity
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.TabLayout
 import android.view.Menu
@@ -27,6 +26,11 @@ class TypeContentActivity : BaseActivity() {
     }
 
     override fun setLayoutId(): Int = R.layout.activity_type_content
+
+    override fun initImmersionBar() {
+        super.initImmersionBar()
+        immersionBar.titleBar(R.id.typeSecondToolbar).init()
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

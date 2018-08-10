@@ -27,7 +27,7 @@ class SearchPresenterImpl(
         }
         val total = result.data.total
         if (total == 0) {
-            searchView.getsearchListZero()
+            searchView.getSearchListZero()
             return
         }
         if (total < result.data.size) {

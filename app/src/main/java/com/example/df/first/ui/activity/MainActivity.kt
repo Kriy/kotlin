@@ -1,4 +1,4 @@
-package top.jowanxu.wanandroidclient.ui.activity
+package com.example.df.first.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -16,9 +16,6 @@ import com.example.df.first.R
 import com.example.df.first.base.BaseActivity
 import com.example.df.first.base.Preference
 import com.example.df.first.constant.Constant
-import com.example.df.first.ui.activity.AboutActivity
-import com.example.df.first.ui.activity.LoginActivity
-import com.example.df.first.ui.activity.SearchActivity
 import com.example.df.first.ui.fragment.CommonUseFragment
 import com.example.df.first.ui.fragment.HomeFragment
 import com.example.df.first.ui.fragment.TypeFragment
@@ -26,8 +23,8 @@ import kotlinx.android.synthetic.main.activity_main.*
 import toast
 
 /**
- * 主界面
- */
+* 主界面
+*/
 class MainActivity : BaseActivity() {
     private var lastTime: Long = 0
     private var currentIndex = 0
@@ -90,7 +87,7 @@ class MainActivity : BaseActivity() {
         navigationViewUsername =
                 navigationView.getHeaderView(0).findViewById<TextView>(R.id.navigationViewUsername)
         navigationViewLogout = navigationView.getHeaderView(0)
-                .findViewById<AppCompatButton>(R.id.navigationViewLogout)
+                .findViewById(R.id.navigationViewLogout)
         navigationViewUsername.run {
             if (!isLogin) {
                 text = getString(R.string.not_login)

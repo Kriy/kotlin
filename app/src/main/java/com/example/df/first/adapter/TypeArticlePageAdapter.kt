@@ -5,6 +5,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.support.v4.view.PagerAdapter
 import com.example.df.first.bean.TreeListResponse.Data.Children
+import com.example.df.first.ui.fragment.TypeArticleFragment
 
 class TypeArticlePageAdapter(val list: List<Children>, fm: FragmentManager) : FragmentStatePagerAdapter(fm){
 

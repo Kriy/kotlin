@@ -30,7 +30,6 @@ class TypeFragment : BaseFragment(), TypeFragmentView {
         TypeAdapter(activity, datas)
     }
 
-
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
