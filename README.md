@@ -5,23 +5,13 @@
    1.玩安卓   
    
       Kotlin + MVP + Kotlin-Coroutines + Retrofit2(GsonCallAdapterFactory + CoroutineCallAdapterFactory)
-      
       Kotlin
-      
       Kotlin协程
-      
       Retrofit2
-      
       Retrofit2-Kotlin协程适配器
-      
       鸿神的Flowlayout
-      
       BRVAH
-      
       Agentweb
-      
       ImmersionBar
-      
       Leakcanary
-      
       Glide
