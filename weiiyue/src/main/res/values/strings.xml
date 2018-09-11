@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">News</string>
+    <string name="text_nonet">网络异常!</string>
+    <string name="text_empty">还没有数据哦!</string>
+</resources>
