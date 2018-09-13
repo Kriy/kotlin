@@ -17,3 +17,5 @@
       Glide
 
    2.微阅读
+
+       kotlin MVP + Retrofit2 + RxJava + dagger2
