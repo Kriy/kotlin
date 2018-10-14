@@ -15,6 +15,8 @@
       ImmersionBar
       Leakcanary
       Glide
+     此项目很适合对kotlin语言有一定基础的知识的人练习，敲代码的时候可以体会下kotlin的语法
+
 
    2.微阅读
 
