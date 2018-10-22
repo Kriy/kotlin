@@ -6,7 +6,6 @@
     android:orientation="vertical"
     tools:context="com.example.weiyue.WelcomeActivity">
 
-
     <ImageView
         android:id="@+id/iv_ad"
         android:layout_width="match_parent"

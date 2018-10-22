@@ -12,7 +12,7 @@ import kotlin.properties.Delegates
 class MyApp : LitePalApplication() {
 
     companion object {
-        var instance:MyApp by Delegates.notNull()
+        var instance: MyApp by Delegates.notNull()
         var mApplicationComponent: ApplicationComponent by Delegates.notNull()
     }
 
