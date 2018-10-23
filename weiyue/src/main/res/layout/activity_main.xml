@@ -8,10 +8,14 @@
 
     <FrameLayout
         android:id="@+id/contentContainer"
-        android:layout_above="@+id/mBootomBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/mBootomBar" />
 
-
+    <com.example.weiyue.widget.BottomBar
+        android:id="@+id/mBootomBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
 
 </RelativeLayout>

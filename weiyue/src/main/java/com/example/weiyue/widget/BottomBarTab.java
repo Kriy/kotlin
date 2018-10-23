@@ -80,5 +80,5 @@ public class BottomBarTab extends LinearLayout {
         }
     }
 
-    public int getmTabPosition(){return mTabPosition;}
+    public int getTabPosition(){return mTabPosition;}
 }
