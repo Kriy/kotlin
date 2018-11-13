@@ -1,5 +1,6 @@
 package com.example.df.first.ui.activity
 
+import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -13,6 +14,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import com.example.df.first.R
+import com.example.df.first.R.id.*
 import com.example.df.first.base.BaseActivity
 import com.example.df.first.base.Preference
 import com.example.df.first.constant.Constant

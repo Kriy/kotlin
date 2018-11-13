@@ -74,14 +74,22 @@ class NewsDetail(var listId: String?, var type: String?,
             }
         }
 
-        data class StyleBean(var type: String?, var url: String?,
-                             var weburl: String?) {
+        class StyleBean {
 
+            /**
+             * backreason : ["来源:央视网","内容质量差","旧闻、重复","标题党"]
+             * view : titleimg
+             */
+
+
+            var view: String? = null
+            var backreason: ArrayList<String>? = null
+            var images: ArrayList<String>? = null
             override fun toString(): String {
-                return "LinkBean{" +
-                        "type='" + type + '\'' +
-                        ", url='" + url + '\'' +
-                        ", weburl='" + weburl + '\'' +
+                return "StyleBean{" +
+                        "view='" + view + '\'' +
+                        ", backreason=" + backreason +
+                        ", images=" + images +
                         '}'
             }
         }

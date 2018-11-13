@@ -27,7 +27,9 @@ class MainActivity : BaseActivity<BaseContract.BasePresenter>() {
 
     override fun bindView(view: View, savedInstanceState: Bundle?) {
         StatusBarUtil.setTranslucentForImageViewInFragment(this@MainActivity, 0, null)
-
+        if (savedInstanceState == null) {
+//            mFraments[0]= News
+        }
 
 
         mBootomBar.addItem(BottomBarTab(this, R.drawable.ic_news, "新闻"))
@@ -38,7 +40,7 @@ class MainActivity : BaseActivity<BaseContract.BasePresenter>() {
         mBootomBar.setOnTabSelectedListener(object : BottomBar.OnTabSelectedListener {
 
             override fun onTabSelected(position: Int, prePosition: Int) {
-//                supportDelegate.showHideFragment(mFraments[position], mFraments[prePosition])
+                supportDelegate.showHideFragment(mFraments[position], mFraments[prePosition])
             }
 
             override fun onTabUnselected(position: Int) {}
