@@ -17,8 +17,9 @@ import com.example.weiyue.MyApp
 import com.example.weiyue.R
 import com.example.weiyue.bean.NewsDetail
 import com.example.weiyue.component.ApplicationComponent
-import com.example.weiyue.component.DaggerHttpCOmponent
+import com.example.weiyue.component.DaggerHttpComponent
 import com.example.weiyue.net.NewsApi
+import com.example.weiyue.net.NewsUtils
 import com.example.weiyue.ui.adapter.NewsDetailAdapter
 import com.example.weiyue.ui.base.BaseFragment
 import com.example.weiyue.ui.news.contract.DetailContract
@@ -63,7 +64,7 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
     override fun getSimpleMultiStateView(): SimpleMultiStateView? = mSimpleMultiStateView
 
     override fun initInjector(appComponent: ApplicationComponent) {
-        DaggerHttpCOmponent.builder()
+        DaggerHttpComponent.builder()
                 .applicationComponent(appComponent)
                 .build()
                 .inject(this)
@@ -250,11 +251,11 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
     private fun bannerToRead(itemBean: NewsDetail.ItemBean?) {
         itemBean?.let {
             when (it.type) {
-//                NewsUtils.TYPE_DOC -> {
-//                    it.documentId?.let {
-//                        ArticleReadActivity.launch(activity, it)
-//                    }
-//                }
+                NewsUtils.TYPE_DOC -> {
+                    it.documentId?.let {
+                        ArticleReadActivity.launch(activity, it)
+                    }
+                }
 //                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
 //                NewsUtils.TYPE_ADVERT -> it.link?.weburl?.let { AdvertActivity.launch(activity, it) }
 //                NewsUtils.TYPE_PHVIDEO -> toast("TYPE_PHVIDEO")
