@@ -22,6 +22,7 @@ import com.example.weiyue.net.NewsApi
 import com.example.weiyue.net.NewsUtils
 import com.example.weiyue.ui.adapter.NewsDetailAdapter
 import com.example.weiyue.ui.base.BaseFragment
+import com.example.weiyue.ui.jiandan.ImageBrowseActivity
 import com.example.weiyue.ui.news.contract.DetailContract
 import com.example.weiyue.ui.news.presenter.DetailPresenter
 import com.example.weiyue.utils.ImageLoaderUtil
@@ -256,11 +257,11 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
                         ArticleReadActivity.launch(activity, it)
                     }
                 }
-//                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
-//                NewsUtils.TYPE_ADVERT -> it.link?.weburl?.let { AdvertActivity.launch(activity, it) }
-//                NewsUtils.TYPE_PHVIDEO -> toast("TYPE_PHVIDEO")
-//                else -> {
-//                }
+                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
+                NewsUtils.TYPE_ADVERT -> it.link?.weburl?.let { AdvertActivity.launch(activity, it) }
+                NewsUtils.TYPE_PHVIDEO -> toast("TYPE_PHVIDEO")
+                else -> {
+                }
             }
         }
     }
