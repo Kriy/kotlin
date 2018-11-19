@@ -59,6 +59,7 @@
         <activity android:name=".ui.news.ArticleReadActivity" />
         <activity android:name=".ui.jiandan.ImageBrowseActivity" />
         <activity android:name=".ui.news.AdvertActivity" />
+        <activity android:name=".ui.news.ImageBrowseActivity" />
 
     </application>
 

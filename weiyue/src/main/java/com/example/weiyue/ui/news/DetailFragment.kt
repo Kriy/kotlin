@@ -257,7 +257,7 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
                         ArticleReadActivity.launch(activity, it)
                     }
                 }
-                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
+//                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
                 NewsUtils.TYPE_ADVERT -> it.link?.weburl?.let { AdvertActivity.launch(activity, it) }
                 NewsUtils.TYPE_PHVIDEO -> toast("TYPE_PHVIDEO")
                 else -> {

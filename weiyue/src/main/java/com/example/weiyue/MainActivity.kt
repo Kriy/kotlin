@@ -1,12 +1,12 @@
 package com.example.weiyue
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.example.weiyue.R.id.mBootomBar
 import com.example.weiyue.component.ApplicationComponent
 import com.example.weiyue.ui.base.BaseActivity
 import com.example.weiyue.ui.base.BaseContract
+import com.example.weiyue.ui.news.NewsFragment
+import com.example.weiyue.ui.video.VideoFragment
 import com.example.weiyue.utils.StatusBarUtil
 import com.example.weiyue.widget.BottomBar
 import com.example.weiyue.widget.BottomBarTab
@@ -28,7 +28,8 @@ class MainActivity : BaseActivity<BaseContract.BasePresenter>() {
     override fun bindView(view: View, savedInstanceState: Bundle?) {
         StatusBarUtil.setTranslucentForImageViewInFragment(this@MainActivity, 0, null)
         if (savedInstanceState == null) {
-//            mFraments[0]= News
+//            mFraments[0] = NewsFragment.newInstance()
+//            mFraments[1] = VideoFragment.newInstance()
         }
 
 
