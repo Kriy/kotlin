@@ -5,6 +5,8 @@ import android.view.View
 import com.example.weiyue.component.ApplicationComponent
 import com.example.weiyue.ui.base.BaseActivity
 import com.example.weiyue.ui.base.BaseContract
+import com.example.weiyue.ui.base.SupportFragment
+import com.example.weiyue.ui.jiandan.JanDanFragment
 import com.example.weiyue.ui.news.NewsFragment
 import com.example.weiyue.ui.video.VideoFragment
 import com.example.weiyue.utils.StatusBarUtil
@@ -13,7 +15,6 @@ import com.example.weiyue.widget.BottomBarTab
 import com.example.weiyue.widget.SimpleMultiStateView
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer
 import kotlinx.android.synthetic.main.activity_main.*
-import me.yokeyword.fragmentation.SupportFragment
 
 class MainActivity : BaseActivity<BaseContract.BasePresenter>() {
 
@@ -28,8 +29,9 @@ class MainActivity : BaseActivity<BaseContract.BasePresenter>() {
     override fun bindView(view: View, savedInstanceState: Bundle?) {
         StatusBarUtil.setTranslucentForImageViewInFragment(this@MainActivity, 0, null)
         if (savedInstanceState == null) {
-//            mFraments[0] = NewsFragment.newInstance()
-//            mFraments[1] = VideoFragment.newInstance()
+            mFraments[0] = NewsFragment.newInstance()
+            mFraments[1] = VideoFragment.newInstance()
+            mFraments[2] = JanDanFragment.newInstance()
         }
 
 

@@ -6,6 +6,7 @@ import com.example.weiyue.R
 import com.example.weiyue.bean.VideoChannelBean
 import com.example.weiyue.bean.VideoDetailBean
 import com.example.weiyue.component.ApplicationComponent
+import com.example.weiyue.component.DaggerHttpComponent
 import com.example.weiyue.ui.adapter.VideoPagerAdapter
 import com.example.weiyue.ui.base.BaseFragment
 import com.example.weiyue.ui.video.contract.VideoContract
@@ -29,10 +30,10 @@ class VideoFragment : BaseFragment<VideoPresenter>(), VideoContract.View {
     override fun getSimpleMultiStateView(): SimpleMultiStateView? = null
 
     override fun initInjector(appComponent: ApplicationComponent) {
-//        DaggerHttpComponent.builder()
-//                .applicationComponent(appComponent)
-//                .build()
-//                .inject(this)
+        DaggerHttpComponent.builder()
+                .applicationComponent(appComponent)
+                .build()
+                .inject(this)
     }
 
     override fun getContentLayout(): Int = R.layout.fragment_video

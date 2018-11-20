@@ -1,5 +1,7 @@
 package com.example.weiyue.bean
 
+import com.chad.library.adapter.base.entity.MultiItemEntity
+
 data class JdDetailBean(var status: String?, var current_page: Int = 0,
                         var total_comments: Int = 0, var page_count: Int = 0,
                         var count: Int = 0, var comments: List<CommentsBean>?) {
@@ -15,9 +17,9 @@ data class JdDetailBean(var status: String?, var current_page: Int = 0,
                             var comment_subscribe: String?, var comment_reply_ID: String?,
                             var vote_positive: String?, var vote_negative: String?,
                             var vote_ip_pool: String?, var sub_comment_count: String?,
-                            var text_content: String?, var pics: List<String>?) {
+                            var text_content: String?, var pics: List<String>?) : JdBaseBean(), MultiItemEntity {
 
-        fun getItemType(): Int {
+        override fun getItemType(): Int {
             return viewType
         }
 

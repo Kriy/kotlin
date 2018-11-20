@@ -22,7 +22,6 @@ import com.example.weiyue.net.NewsApi
 import com.example.weiyue.net.NewsUtils
 import com.example.weiyue.ui.adapter.NewsDetailAdapter
 import com.example.weiyue.ui.base.BaseFragment
-import com.example.weiyue.ui.jiandan.ImageBrowseActivity
 import com.example.weiyue.ui.news.contract.DetailContract
 import com.example.weiyue.ui.news.presenter.DetailPresenter
 import com.example.weiyue.utils.ImageLoaderUtil
@@ -257,7 +256,7 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
                         ArticleReadActivity.launch(activity, it)
                     }
                 }
-//                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
+                NewsUtils.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
                 NewsUtils.TYPE_ADVERT -> it.link?.weburl?.let { AdvertActivity.launch(activity, it) }
                 NewsUtils.TYPE_PHVIDEO -> toast("TYPE_PHVIDEO")
                 else -> {
@@ -269,7 +268,19 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
     private fun toRead(itemBean: NewsDetail.ItemBean?) {
         itemBean?.let {
             when (it.itemType) {
-//                NewsDetail∂
+                NewsDetail.ItemBean.TYPE_DOC_TITLEIMG, NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG -> {
+                    it.documentId?.let {
+                        ArticleReadActivity.launch(activity, it)
+                    }
+                }
+                NewsDetail.ItemBean.TYPE_SLIDE -> ImageBrowseActivity.launch(activity, it)
+                NewsDetail.ItemBean.TYPE_ADVERT_TITLEIMG, NewsDetail.ItemBean.TYPE_ADVERT_SLIDEIMG, NewsDetail.ItemBean.TYPE_ADVERT_LONGIMG -> {
+                    it.link?.weburl?.let { AdvertActivity.launch(activity, it) }
+                }
+                NewsDetail.ItemBean.TYPE_PHVIDEO -> toast("TYPE_PHVIDEO")
+                else -> {
+
+                }
             }
         }
 
