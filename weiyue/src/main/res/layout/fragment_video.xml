@@ -7,7 +7,7 @@
     <View
         android:id="@+id/fake_status_bar"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="@dimen/statusbar_view_height"
         android:background="@color/colorPrimary" />
 
     <android.support.design.widget.TabLayout xmlns:app="http://schemas.android.com/apk/res-auto"

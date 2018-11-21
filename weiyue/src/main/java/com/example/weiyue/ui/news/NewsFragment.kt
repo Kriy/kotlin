@@ -8,6 +8,8 @@ import com.example.weiyue.R
 import com.example.weiyue.bean.Channel
 import com.example.weiyue.component.ApplicationComponent
 import com.example.weiyue.component.DaggerHttpComponent
+import com.example.weiyue.database.ChannelDao
+import com.example.weiyue.event.NewChannelEvent
 import com.example.weiyue.event.SelectChannelEvent
 import com.example.weiyue.ui.adapter.ChannelPagerAdapter
 import com.example.weiyue.ui.base.BaseFragment
@@ -15,7 +17,6 @@ import com.example.weiyue.ui.news.contract.NewsContract
 import com.example.weiyue.ui.news.presenter.NewsPresenter
 import com.example.weiyue.widget.SimpleMultiStateView
 import com.example.weiyue.widget.channelDialog.ChannelDialogFragment
-import kotlinx.android.synthetic.main.activity_imagebrowse.*
 import kotlinx.android.synthetic.main.fragment_news_new.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -81,7 +82,7 @@ class NewsFragment : BaseFragment<NewsPresenter>(), NewsContract.View {
         viewpager.adapter = mChannelPagerAdapter
         viewpager.offscreenPageLimit = 2
         viewpager.setCurrentItem(0, false)
-        slidingTabLayout.setViewPager(viewPager)
+        slidingTabLayout.setViewPager(viewpager)
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -89,6 +90,29 @@ class NewsFragment : BaseFragment<NewsPresenter>(), NewsContract.View {
         selectChannelEvent?.let {
             val integers = mSelectedData?.map { it.channelName!! }
             integers?.let { setViewpagerPosition(it, selectChannelEvent.channelName) }
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN_ORDERED)
+    fun updateChannel(event: NewChannelEvent?) {
+        event?.let {
+            mSelectedData = it.selectedData
+            mUnSelectedData = it.unSelectedData
+            mChannelPagerAdapter?.updateChannel(mSelectedData!!)
+            slidingTabLayout.notifyDataSetChanged()
+            ChannelDao.saveChannels(it.allChannel)
+            val integers = mSelectedData?.map { it.channelName!! }
+            integers?.let {
+                when {
+                    TextUtils.isEmpty(event.firstChannelName) -> if (!integers.contains(selectedChannel)) {
+                        selectedChannel = mSelectedData!![selectedIndex].channelName
+                        viewpager.setCurrentItem(selectedIndex, false)
+                    } else {
+                        setViewpagerPosition(integers, selectedChannel!!)
+                    }
+                    else -> setViewpagerPosition(integers, event.firstChannelName)
+                }
+            }
         }
     }
 

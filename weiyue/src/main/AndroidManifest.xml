@@ -56,11 +56,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.news.ArticleReadActivity" />
-        <activity android:name=".ui.jiandan.ImageBrowseActivity" />
-        <activity android:name=".ui.news.AdvertActivity" />
-        <activity android:name=".ui.news.ImageBrowseActivity" />
-        <activity android:name=".ui.jiandan.ReadActivity" />
+        <activity
+            android:name=".ui.news.ArticleReadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".ui.jiandan.ImageBrowseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".ui.news.AdvertActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".ui.news.ImageBrowseActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
+        <activity
+            android:name=".ui.jiandan.ReadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Transparent" />
 
     </application>
 

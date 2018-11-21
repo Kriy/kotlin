@@ -6,7 +6,7 @@
     <version value="1">
     </version>
     <list>
-        <mapping class="com.will.weiyuekotlin.bean.Channel">
+        <mapping class="com.example.weiyue.bean.Channel">
         </mapping>
     </list>
 

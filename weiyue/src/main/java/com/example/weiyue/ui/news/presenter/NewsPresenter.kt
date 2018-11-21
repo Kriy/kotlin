@@ -30,7 +30,7 @@ constructor() : BasePresenter<NewsContract.View>(), NewsContract.Presenter {
                     channel.channelType = if (i < 1) 1 else 0
                     channel.isChannelSelect = i < channelName.size - 3
                     when {
-                        i < channelId.size - 3 -> channelName.size - 3
+                        i < channelId.size - 3 -> myChannels.add(channel)
                         else -> otherChannels.add(channel)
                     }
                 }

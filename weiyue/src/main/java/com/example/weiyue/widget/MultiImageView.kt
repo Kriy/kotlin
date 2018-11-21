@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import com.example.weiyue.utils.ImageLoaderUtil
-import java.util.*
 
 class MultiImageView : LinearLayout {
 
@@ -16,7 +15,7 @@ class MultiImageView : LinearLayout {
         var MAX_WIDTH = 0
     }
 
-    private var imagesList: ArrayList<String>? = null
+    private var imagesList: List<String>? = null
     private var pxOneMaxWandH: Int = 0  // 单张图最大允许宽高
     private var pxMoreWandH = 0// 多张图的宽高
     private val pxImagePadding = ContextUtils.dp2px(context, 3f)// 图片间的间距
@@ -40,7 +39,7 @@ class MultiImageView : LinearLayout {
         mOnItemClickListener = onItemClickListener
     }
 
-    fun setList(lists: ArrayList<String>?) {
+    fun setList(lists: List<String>?) {
         if (lists == null)
             throw IllegalArgumentException("imageList is null...")
         imagesList = lists

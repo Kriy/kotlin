@@ -8,6 +8,7 @@ import com.example.weiyue.ui.base.BaseContract
 import com.example.weiyue.ui.base.SupportFragment
 import com.example.weiyue.ui.jiandan.JanDanFragment
 import com.example.weiyue.ui.news.NewsFragment
+import com.example.weiyue.ui.personal.PersonalFragment
 import com.example.weiyue.ui.video.VideoFragment
 import com.example.weiyue.utils.StatusBarUtil
 import com.example.weiyue.widget.BottomBar
@@ -32,8 +33,19 @@ class MainActivity : BaseActivity<BaseContract.BasePresenter>() {
             mFraments[0] = NewsFragment.newInstance()
             mFraments[1] = VideoFragment.newInstance()
             mFraments[2] = JanDanFragment.newInstance()
-        }
+            mFraments[3] = PersonalFragment.newInstance()
 
+            supportDelegate.loadMultipleRootFragment(R.id.contentContainer, 0,
+                    mFraments[0],
+                    mFraments[1],
+                    mFraments[2],
+                    mFraments[3])
+        } else {
+            mFraments[0] = findFragment(NewsFragment::class.java)
+            mFraments[1] = findFragment(VideoFragment::class.java)
+            mFraments[2] = findFragment(JanDanFragment::class.java)
+            mFraments[3] = findFragment(PersonalFragment::class.java)
+        }
 
         mBootomBar.addItem(BottomBarTab(this, R.drawable.ic_news, "新闻"))
                 .addItem(BottomBarTab(this, R.drawable.ic_video, "视频"))
