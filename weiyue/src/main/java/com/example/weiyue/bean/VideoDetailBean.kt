@@ -1,7 +1,7 @@
 package com.example.weiyue.bean
 
-data class VideoDetailBean(var totalPage: Int = 0, var currentPage: String?,
-                           var type: String?, var item: List<ItemBean>?) {
+data class VideoDetailBean(var totalPage: Int = 0, var currentPage: String? = null,
+                           var type: String? = null, var item: List<ItemBean>? = null) {
 
     data class ItemBean(var documentId: String?, var title: String?,
                         var image: String?, var thumbnail: String?,

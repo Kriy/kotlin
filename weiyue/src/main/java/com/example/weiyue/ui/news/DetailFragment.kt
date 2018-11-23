@@ -145,7 +145,7 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
         initDelPop()
     }
 
-    fun initDelPop() {
+    private fun initDelPop() {
         newsDelPop = NewsDelPop(activity)
                 .alignCenter(false)
                 .widthScale(0.95f)
@@ -266,7 +266,7 @@ class DetailFragment : BaseFragment<DetailPresenter>(), DetailContract.View {
     }
 
     private fun toRead(itemBean: NewsDetail.ItemBean?) {
-        itemBean?.let {
+        itemBean?.let { it ->
             when (it.itemType) {
                 NewsDetail.ItemBean.TYPE_DOC_TITLEIMG, NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG -> {
                     it.documentId?.let {

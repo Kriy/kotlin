@@ -14,7 +14,7 @@ class FreshNewsAdapter(private val context: Context, data: List<FreshNewsBean.Po
     override fun convert(helper: BaseViewHolder, item: FreshNewsBean.PostsBean) {
         helper.setText(R.id.tv_title, item.title)
                 .setText(R.id.tv_info, item.author!!.name)
-                .setText(R.id.tv_commnetsize, item.comment_count.toString())
+                .setText(R.id.tv_commentsize, item.comment_count.toString())
         ImageLoaderUtil.LoadImage(context, item.custom_fields!!.thumb_c!![0], helper.getView<ImageView>(R.id.iv_logo))
     }
 

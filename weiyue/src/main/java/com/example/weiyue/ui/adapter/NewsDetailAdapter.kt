@@ -25,7 +25,7 @@ class NewsDetailAdapter(data: List<NewsDetail.ItemBean>?, private val context: C
             NewsDetail.ItemBean.TYPE_DOC_TITLEIMG, NewsDetail.ItemBean.TYPE_SLIDE, NewsDetail.ItemBean.TYPE_PHVIDEO -> {
                 helper.setText(R.id.tv_title, item!!.title)
                         .setText(R.id.tv_source, item.source)
-                        .setText(R.id.tv_commnetsize, String.format(context.resources.getString(R.string.news_commentsize)
+                        .setText(R.id.tv_commentsize, String.format(context.resources.getString(R.string.news_commentsize)
                                 , item.commentsall))
                         .addOnClickListener(R.id.iv_close)
                 ImageLoaderUtil.LoadImage(context, item.thumbnail, helper.getView(R.id.iv_logo) as ImageView)
@@ -33,7 +33,7 @@ class NewsDetailAdapter(data: List<NewsDetail.ItemBean>?, private val context: C
             NewsDetail.ItemBean.TYPE_DOC_SLIDEIMG -> {
                 helper.setText(R.id.tv_title, item!!.title)
                         .setText(R.id.tv_source, item.source)
-                        .setText(R.id.tv_commnetsize, String.format(context.resources.getString(R.string.news_commentsize)
+                        .setText(R.id.tv_commentsize, String.format(context.resources.getString(R.string.news_commentsize)
                                 , item.commentsall))
                         .addOnClickListener(R.id.iv_close)
                 ImageLoaderUtil.LoadImage(context, item.style?.images?.get(0), helper.getView(R.id.iv_1) as ImageView)

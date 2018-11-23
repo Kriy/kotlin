@@ -17,6 +17,7 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.weiyue.R
 import com.example.weiyue.bean.NewsArticleBean
 import com.example.weiyue.component.ApplicationComponent
+import com.example.weiyue.component.DaggerHttpComponent
 import com.example.weiyue.ui.base.BaseActivity
 import com.example.weiyue.ui.news.contract.ArticleReadContract
 import com.example.weiyue.ui.news.presenter.ArticleReadPresenter
@@ -42,7 +43,10 @@ class ArticleReadActivity : BaseActivity<ArticleReadPresenter>(), ArticleReadCon
     override fun getSimpleMultiStateView(): SimpleMultiStateView? = simpleMultiStateView
 
     override fun initInjector(appComponent: ApplicationComponent) {
-
+        DaggerHttpComponent.builder()
+                .applicationComponent(appComponent)
+                .build()
+                .inject(this)
     }
 
     override fun bindView(view: View, savedInstanceState: Bundle?) {
