@@ -28,6 +28,10 @@ class JdDetailFragment constructor
 (private val mAdapter: BaseQuickAdapter<in JdBaseBean, BaseViewHolder>) : BaseFragment<JanDanPresenter>(), JanDanContract.View {
     private var pageNum = 1
 
+    /**
+     * 类型
+     * @see com.will.weiyuekotlin.net.JanDanApi.Type
+     */
     private lateinit var type: String
 
     companion object {
@@ -54,13 +58,14 @@ class JdDetailFragment constructor
     override fun bindView(view: View, savedInstanceState: Bundle?) {
         ptrFrameLayout.disableWhenHorizontalMove(true)
         ptrFrameLayout.setPtrHandler(object : PtrHandler {
-            override fun onRefreshBegin(frame: PtrFrameLayout?) {
-                pageNum = 1
-                mPresenter?.getData(type, pageNum)
+            override fun checkCanDoRefresh(frame: PtrFrameLayout, content: View, header: View): Boolean {
+                return PtrDefaultHandler.checkContentCanBePulledDown(frame, recyclerView, header)
             }
 
-            override fun checkCanDoRefresh(frame: PtrFrameLayout?, content: View?, header: View?): Boolean {
-                return PtrDefaultHandler.checkContentCanBePulledDown(frame, recyclerView, header)
+            override fun onRefreshBegin(frame: PtrFrameLayout) {
+                pageNum = 1
+                mPresenter?.getData(type, pageNum)
+
             }
         })
 
@@ -84,6 +89,11 @@ class JdDetailFragment constructor
         mPresenter?.getData(type, pageNum)
     }
 
+    /**
+     * 加载新鲜事列表
+     *
+     * @param freshNewsBean 新鲜事列表
+     */
     override fun loadFreshNews(freshNewsBean: FreshNewsBean?) {
         when (freshNewsBean) {
             null -> {
@@ -99,6 +109,11 @@ class JdDetailFragment constructor
         }
     }
 
+    /**
+     * 加载更多新鲜事列表
+     *
+     * @param freshNewsBean 新鲜事列表
+     */
     override fun loadMoreFreshNews(freshNewsBean: FreshNewsBean?) {
         when (freshNewsBean) {
             null -> mAdapter.loadMoreFail()
@@ -110,6 +125,12 @@ class JdDetailFragment constructor
         }
     }
 
+    /**
+     * 加载 无聊图、妹子图、段子列表
+     *
+     * @param type  [com.will.weiyuekotlin.net.JanDanApi.Type]
+     * @param jdDetailBean 数据列表
+     */
     override fun loadDetailData(type: String, jdDetailBean: JdDetailBean?) {
         when (jdDetailBean) {
             null -> {
@@ -125,6 +146,12 @@ class JdDetailFragment constructor
         }
     }
 
+    /**
+     * 加载更多 无聊图、妹子图、段子列表
+     *
+     * @param type  [com.will.weiyuekotlin.net.JanDanApi.Type]
+     * @param jdDetailBean 数据列表
+     */
     override fun loadMoreDetailData(type: String, jdDetailBean: JdDetailBean?) {
         when (jdDetailBean) {
             null -> mAdapter.loadMoreFail()

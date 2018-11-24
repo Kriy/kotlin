@@ -61,8 +61,8 @@ constructor(private var mJanDanApi: JanDanApi) : BasePresenter<JanDanContract.Vi
                 .subscribe(object : BaseObserver<JdDetailBean>() {
                     override fun onSuccess(t: JdDetailBean?) {
                         when {
-                            page > 1 -> mView?.loadMoreDetailData(type, null)
-                            else -> mView?.loadDetailData(type, null)
+                            page > 1 -> mView?.loadMoreDetailData(type, t)
+                            else -> mView?.loadDetailData(type, t)
                         }
                     }
 
