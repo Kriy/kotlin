@@ -3,7 +3,7 @@ package com.example.df.first.base
 import android.app.Application
 import android.content.ComponentCallbacks2
 import com.bumptech.glide.Glide
-import com.squareup.leakcanary.BuildConfig
+import com.example.df.first.BuildConfig
 import com.squareup.leakcanary.LeakCanary
 
 class BaseApplication : Application(){
