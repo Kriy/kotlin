@@ -23,3 +23,5 @@
        kotlin MVP + Retrofit2 + RxJava + dagger2
 
      此项目对kotlin的使用有一定的深入，特别结合mvp架构，又结合了dagger2,还是需要一定的相关基础知识去理解
+
+   3.视频类项目
