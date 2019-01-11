@@ -4,8 +4,8 @@ import com.hazz.kotlinmvp.MyApplication
 import com.hazz.kotlinmvp.api.ApiService
 import com.hazz.kotlinmvp.api.UrlConstant
 import com.hazz.kotlinmvp.utils.AppUtils
+import com.hazz.kotlinmvp.utils.NetworkUtil
 import com.hazz.kotlinmvp.utils.Preference
-import com.shuyu.gsyvideoplayer.utils.NetworkUtils
 import okhttp3.*
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
