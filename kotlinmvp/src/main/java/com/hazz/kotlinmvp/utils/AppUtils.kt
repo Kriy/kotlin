@@ -34,7 +34,7 @@ class AppUtils private constructor() {
         val maxMemory: Long
             get() = Runtime.getRuntime().maxMemory() / 1024
 
-        fun getVername(context: Context): String {
+        fun getVerName(context: Context): String {
             var verName = ""
             try {
                 val packageName = context.packageName
