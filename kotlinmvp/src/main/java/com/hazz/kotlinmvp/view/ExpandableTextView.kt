@@ -3,6 +3,7 @@ package com.hazz.kotlinmvp.view
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
 import android.view.animation.AlphaAnimation
@@ -35,6 +36,14 @@ class ExpandableTextView : LinearLayout, View.OnClickListener {
 
     private val mListener: OnExpandStateChangeListener? = null
 
+    var text: CharSequence?
+        get() = if (mTextView == null) "" else mTextView!!.text
+        set(text) {
+            mRelayout = true
+            mTextView!!.text = text
+            visibility = if (TextUtils.isEmpty(text)) View.GONE else View.VISIBLE
+        }
+
     constructor(context: Context) : super(context)
 
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {
@@ -46,7 +55,7 @@ class ExpandableTextView : LinearLayout, View.OnClickListener {
     }
 
     private fun initView(attrs: AttributeSet) {
-
+        val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ExpandableTextView)
     }
 
     override fun onClick(v: View?) {
@@ -71,7 +80,19 @@ class ExpandableTextView : LinearLayout, View.OnClickListener {
     }
 
     interface OnExpandStateChangeListener {
+        fun onExpandStateChanged(textView: TextView?, isExpanded: Boolean)
+    }
 
+    companion object {
+        private val MAX_COLLAPSED_LINES = 8
+        private val DEFAULT_ANIM_DURATION = 300
+        private val DEFAULT_ANIM_ALPHA_START = 0.7f
+
+        private fun getRealTextViewHeight(textView: TextView): Int {
+            val textHeight = textView.layout.getLineTop(textView.lineCount)
+            val padding = textView.compoundPaddingTop + textView.compoundPaddingBottom
+            return textHeight + padding
+        }
     }
 
     private fun applyAlphaAnimation(view: View?, alpha: Float) {
