@@ -3,6 +3,8 @@ package com.hazz.kotlinmvp.view
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.os.Build
+import android.support.annotation.DrawableRes
+import android.support.v4.content.ContextCompat
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.view.View
@@ -12,6 +14,7 @@ import android.view.animation.Transformation
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import com.hazz.kotlinmvp.R
 
 /**
  * Created by Terminator on 2019/2/10.
@@ -56,6 +59,33 @@ class ExpandableTextView : LinearLayout, View.OnClickListener {
 
     private fun initView(attrs: AttributeSet) {
         val typedArray = context.obtainStyledAttributes(attrs, R.styleable.ExpandableTextView)
+        mMaxCollapsedLines = typedArray.getInt(R.styleable.ExpandableTextView_maxCollapsedLines, MAX_COLLAPSED_LINES)
+        mAnimationDuration = typedArray.getInt(R.styleable.ExpandableTextView_animDuration, DEFAULT_ANIM_DURATION)
+        mAnimAlphaStart = typedArray.getFloat(R.styleable.ExpandableTextView_animAlphaStart, DEFAULT_ANIM_ALPHA_START)
+        mExpandDrawable = typedArray.getDrawable(R.styleable.ExpandableTextView_expandDrawable)
+        mCollapseDrawable = typedArray.getDrawable(R.styleable.ExpandableTextView_collapseDrawable)
+
+        if (mExpandDrawable == null) {
+            mExpandDrawable = getDrawable(context, R.mipmap.ic_action_down_white)
+        }
+        if (mCollapseDrawable == null) {
+            mCollapseDrawable = getDrawable(context, R.mipmap.ic_action_up_white)
+        }
+
+        typedArray.recycle()
+        orientation = LinearLayout.VERTICAL
+        visibility = View.GONE
+    }
+
+    override fun setOrientation(orientation: Int) {
+        if (orientation == LinearLayout.HORIZONTAL) {
+            throw IllegalArgumentException("ExpandableTextView only supports Vertical Orientation")
+        }
+        super.setOrientation(orientation)
+    }
+
+    override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     }
 
     override fun onClick(v: View?) {
@@ -92,6 +122,15 @@ class ExpandableTextView : LinearLayout, View.OnClickListener {
             val textHeight = textView.layout.getLineTop(textView.lineCount)
             val padding = textView.compoundPaddingTop + textView.compoundPaddingBottom
             return textHeight + padding
+        }
+
+        private fun getDrawable(context: Context, @DrawableRes resId: Int): Drawable? {
+            val resources = context.resources
+            return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                resources.getDrawable(resId, context.theme)
+            } else {
+                ContextCompat.getDrawable(context, resId)
+            }
         }
     }
 
