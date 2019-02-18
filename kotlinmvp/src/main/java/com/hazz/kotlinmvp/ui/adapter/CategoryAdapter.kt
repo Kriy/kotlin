@@ -26,6 +26,5 @@ class CategoryAdapter(mContext: Context, categoryList: ArrayList<CategoryBean>, 
     }
 
     override fun bindData(holder: ViewHolder, data: CategoryBean, position: Int) {
-
     }
 }

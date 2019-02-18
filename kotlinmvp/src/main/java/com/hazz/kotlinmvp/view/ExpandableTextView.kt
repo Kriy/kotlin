@@ -85,11 +85,73 @@ class ExpandableTextView : LinearLayout, View.OnClickListener {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        if (!mRelayout || visibility == View.GONE) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+            return
+        }
+        mRelayout = false
+        mButton!!.visibility = View.GONE
+        mTextView!!.maxLines = Integer.MAX_VALUE
         super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        if (mTextView!!.lineCount <= mMaxCollapsedLines) return
+        mTextHeightWithMaxLines = getRealTextViewHeight(mTextView!!)
+        if (mCollapsed) {
+            mTextView!!.maxLines = mMaxCollapsedLines
+        }
+        mButton!!.visibility = View.VISIBLE
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
+        if (mCollapsed) {
+            mTextView!!.post { mMarginBetweenTxtAndBottom = height - mTextView!!.height }
+            mCollapsedHeight = measuredHeight
+        }
+    }
+
+    override fun onFinishInflate() {
+        findViews()
+        super.onFinishInflate()
+    }
+
+    private fun findViews() {
+        mTextView = findViewById<View>(R.id.expandable_text) as TextView
+        mButton = findViewById<View>(R.id.expand_collapse) as ImageView
+
+        mTextView!!.setOnClickListener(this)
+        mButton!!.setOnClickListener(this)
+        mButton!!.setImageDrawable(if (mCollapsed) mExpandDrawable else mCollapseDrawable)
     }
 
     override fun onClick(v: View?) {
+        if (mButton!!.visibility != View.VISIBLE) {
+            return
+        }
 
+        mCollapsed = !mCollapsed
+        mButton!!.setImageDrawable(if (mCollapsed) mExpandDrawable else mCollapseDrawable)
+        mAnimating = true
+
+        val animation: Animation = if (mCollapsed) {
+            ExpandCollapseAnimation(this, height, mCollapsedHeight)
+        } else {
+            ExpandCollapseAnimation(this, height, height + mTextHeightWithMaxLines - mTextView!!.height)
+        }
+
+        animation.fillAfter = true
+        animation.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(animation: Animation?) {
+                applyAlphaAnimation(mTextView, mAnimAlphaStart)
+            }
+
+            override fun onAnimationEnd(animation: Animation?) {
+                clearAnimation()
+                mAnimating = false
+                mListener?.onExpandStateChanged(mTextView, !mCollapsed)
+            }
+
+            override fun onAnimationRepeat(animation: Animation?) {
+            }
+        })
+        clearAnimation()
+        startAnimation(animation)
     }
 
     internal inner class ExpandCollapseAnimation(private val mTargetView: View, private val mStartHeight: Int, private val mEndHeight: Int) : Animation() {
