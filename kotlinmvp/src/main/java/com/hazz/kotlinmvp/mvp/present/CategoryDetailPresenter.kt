@@ -9,13 +9,43 @@ import com.hazz.kotlinmvp.mvp.model.CategoryDetailModel
  */
 class CategoryDetailPresenter : BasePresenter<CategoryDetailContract.View>(), CategoryDetailContract.Presenter {
 
+    private var nextPageUrl: String? = null
+
     private val categoryDetailModel by lazy {
         CategoryDetailModel()
     }
 
-    override fun loadMoreData() {
+    override fun getCategoryDetailList(id: Long) {
+        checkViewAttached()
+        val disposable = categoryDetailModel.getCategoryDetailList(id)
+                .subscribe({ issue ->
+                    mRootView?.apply {
+                        nextPageUrl = issue.nextPageUrl
+                        setCateDetailList(issue.itemList)
+                    }
+                }, { throwable ->
+                    mRootView?.apply {
+                        showError(throwable.toString())
+                    }
+                })
+        addSubscription(disposable)
     }
 
-    override fun getCategoryDetailList(id: Long) {
+    override fun loadMoreData() {
+        val disposable = nextPageUrl?.let {
+            categoryDetailModel.loadMoreData(it)
+                    .subscribe({ issue ->
+                        mRootView?.apply {
+                            nextPageUrl = issue.nextPageUrl
+                            setCateDetailList(issue.itemList)
+                        }
+                    }, { throwable ->
+                        mRootView?.apply {
+                            showError(throwable.toString())
+                        }
+                    })
+        }
+        disposable?.let { addSubscription(it) }
     }
+
 }

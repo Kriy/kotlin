@@ -1,1 +1,1 @@
-include ':app',':weiyue', ':kotlinmvp', ':multiple-status-view'
+include ':app',':weiyue', ':kotlinmvp', ':multiple-status-view', ':test'
