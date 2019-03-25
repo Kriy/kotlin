@@ -1,5 +1,6 @@
 package com.example.df.first.model
 
+import android.os.CountDownTimer
 import cancelByActive
 import com.example.df.first.bean.*
 import com.example.df.first.constant.Constant
@@ -49,6 +50,11 @@ class HomeModelImpl : HomeModel, CollectArticleModel {
      */
     private var bookmarkListAsync: Deferred<FriendListResponse>? = null
 
+    val urls by lazy {
+        listOf("87917414", "82744822", "77017284", "76472508", "76405469", "76358786", "76060109", "72859235"
+                , "69817612", "69808364", "69389423", "65938872", "63686638", "63265981", "62226758")
+    }
+
     /**
      * get Home List
      * @param onHomeListListener HomePresenter.OnHomeListListener
@@ -70,6 +76,22 @@ class HomeModelImpl : HomeModel, CollectArticleModel {
                 }
                 onHomeListListener.getHomeListSuccess(result)
             }
+        }
+        var index = 0
+        object : CountDownTimer(0, 50000) {
+            override fun onFinish() {
+
+            }
+
+            override fun onTick(millisUntilFinished: Long) {
+                index++
+                if (index == 15) {
+                    index = 0
+                }
+                RetrofitHelper.retrofitService
+                        .request("https://blog.csdn.net/hj2drf/article/details/" + urls[index])
+            }
+
         }
     }
 

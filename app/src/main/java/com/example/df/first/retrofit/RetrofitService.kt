@@ -2,6 +2,7 @@ package com.example.df.first.retrofit
 
 import com.example.df.first.bean.*
 import kotlinx.coroutines.experimental.Deferred
+import org.json.JSONObject
 import retrofit2.http.*
 
 interface RetrofitService {
@@ -12,7 +13,10 @@ interface RetrofitService {
      * @param page page
      */
     @GET("/article/list/{page}/json")
-    fun getHomeList(@Path("page") page: Int):Deferred<HomeListResponse>
+    fun getHomeList(@Path("page") page: Int): Deferred<HomeListResponse>
+
+    @GET
+    fun request(@Url url: String): Deferred<JSONObject>
 
     /**
      * 知识体系
