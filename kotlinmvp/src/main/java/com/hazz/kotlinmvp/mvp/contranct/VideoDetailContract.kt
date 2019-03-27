@@ -14,7 +14,7 @@ interface VideoDetailContract {
 
         fun setBackground(url: String)
 
-        fun setRecentRelateVideo(itemList: ArrayList<HomeBean.Issue.Item>)
+        fun setRecentRelatedVideo(itemList: ArrayList<HomeBean.Issue.Item>)
 
         fun setErrorMsg(errorMsg: String)
     }

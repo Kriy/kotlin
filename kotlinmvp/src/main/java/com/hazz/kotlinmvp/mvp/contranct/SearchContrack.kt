@@ -19,11 +19,11 @@ interface SearchContrack {
         fun showError(errorMsg: String, errorCode: Int)
     }
 
-    interface Presenter:IPresenter<View>{
+    interface Presenter : IPresenter<View> {
 
         fun requestHotWordData()
 
-        fun querySearchData()
+        fun querySearchData(words: String)
 
         fun loadMoreData()
     }
