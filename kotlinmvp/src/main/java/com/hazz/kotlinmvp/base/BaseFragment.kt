@@ -17,7 +17,7 @@ abstract class BaseFragment : Fragment(), EasyPermissions.PermissionCallbacks {
 
     private var isViewPrepare = false
     private var hasLoadData = false
-    private var mLayoutStatusView: MultipleStatusView? = null
+    protected var mLayoutStatusView: MultipleStatusView? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return super.onCreateView(inflater, container, savedInstanceState)

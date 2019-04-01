@@ -3,7 +3,7 @@ package com.hazz.kotlinmvp.ui.activity
 import com.hazz.kotlinmvp.base.BaseActivity
 import com.hazz.kotlinmvp.mvp.contranct.CategoryDetailContract
 import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
-import com.hazz.kotlinmvp.mvp.present.CategoryDetailPresenter
+import com.hazz.kotlinmvp.mvp.presenter.CategoryDetailPresenter
 
 /**
  * Created by Terminator on 2019/2/21.
