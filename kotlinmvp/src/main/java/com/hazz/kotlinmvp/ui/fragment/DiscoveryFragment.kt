@@ -4,7 +4,9 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import com.hazz.kotlinmvp.R
 import com.hazz.kotlinmvp.base.BaseFragment
+import com.hazz.kotlinmvp.base.BaseFragmentAdapter
 import com.hazz.kotlinmvp.utils.StatusBarUtil
+import com.hazz.kotlinmvp.view.TabLayoutHelper
 import kotlinx.android.synthetic.main.fragment_hot.*
 
 class DiscoveryFragment : BaseFragment() {
@@ -25,7 +27,7 @@ class DiscoveryFragment : BaseFragment() {
         }
     }
 
-    override fun getLayoutId(): Int  = R.layout.fragment_hot
+    override fun getLayoutId(): Int = R.layout.fragment_hot
 
     override fun initView() {
         activity?.let { StatusBarUtil.darkMode(it) }
@@ -35,6 +37,15 @@ class DiscoveryFragment : BaseFragment() {
 
         tabList.add("关注")
         tabList.add("分类")
-        fragments.add()
+        fragments.add(FollowFragment.getInstance("关注"))
+        fragments.add(CategoryFragment.getInstance("分类"))
+
+        mViewPager.adapter = BaseFragmentAdapter(childFragmentManager, fragments, tabList)
+        mTabLayout.setupWithViewPager(mViewPager)
+        TabLayoutHelper.setUpIndicatorWidth(mTabLayout)
+    }
+
+    override fun lazyLoad() {
+
     }
 }
