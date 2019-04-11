@@ -2,21 +2,24 @@ package com.hazz.kotlinmvp.mvp.model.bean
 
 import java.io.Serializable
 
-
+/**
+ * Created by xuhao on 2017/11/21.
+ * desc: 首页 Bean（视频详情，相关等）
+ */
 data class HomeBean(val issueList: ArrayList<Issue>,
                     val nextPageUrl: String,
                     val nextPublishTime: Long,
                     val newestIssueType: String,
-                    val dialog: Any) {
+                    val dialog: Any){
 
-    data class Issue(val releaseTime: Long,
-                     val type: String,
-                     val date: Long,
-                     val total: Int,
-                     val publishTime: Long,
-                     val itemList: ArrayList<Item>,
-                     var count: Int,
-                     val nextPageUrl: String) {
+    data class Issue(val releaseTime:Long,
+                     val type:String,
+                     val date:Long,
+                     val total:Int,
+                     val publishTime:Long,
+                     val itemList:ArrayList<Item>,
+                     var count:Int,
+                     val nextPageUrl:String){
 
         data class Item(val type: String,
                         val data: Data?,
@@ -27,20 +30,20 @@ data class HomeBean(val issueList: ArrayList<Issue>,
                             val videoTitle: String,
                             val id: Long,
                             val title: String,
-                            val slogan: String,
+                            val slogan: String?,
                             val description: String,
                             val actionUrl: String,
-                            val provider: String,
+                            val provider: Provider,
                             val category: String,
                             val parentReply: ParentReply,
                             val author: Author,
                             val cover: Cover,
-                            val likeCount: Int,
+                            val likeCount:Int,
                             val playUrl: String,
                             val thumbPlayUrl: String,
                             val duration: Long,
                             val message: String,
-                            val createTime: Long,
+                            val createTime:Long,
                             val webUrl: WebUrl,
                             val library: String,
                             val user: User,
@@ -69,9 +72,8 @@ data class HomeBean(val issueList: ArrayList<Issue>,
                             val lastViewTime: Any,
                             val playlists: Any,
                             val header: Header,
-                            val itemList: ArrayList<HomeBean.Issue.Item>
+                            val itemList:ArrayList<HomeBean.Issue.Item>
             ) : Serializable {
-
                 data class Tag(val id: Int,
                                val name: String,
                                val actionUrl: String,
@@ -97,7 +99,7 @@ data class HomeBean(val issueList: ArrayList<Issue>,
                 data class PlayInfo(val name: String,
                                     val url: String,
                                     val type: String,
-                                    val urlList: ArrayList<Url>) : Serializable
+                                    val urlList:ArrayList<Url>) : Serializable
 
                 data class Consumption(val collectionCount: Int,
                                        val shareCount: Int,
@@ -122,9 +124,9 @@ data class HomeBean(val issueList: ArrayList<Issue>,
                                   val font: String,
                                   val cover: String,
                                   val label: Label,
-                                  val actionUrl: String,
-                                  val subtitle: String,
-                                  val labelList: ArrayList<Label>) : Serializable {
+                                  val actionUrl: String ,
+                                  val subtitle:String,
+                                  val labelList: ArrayList<Label>): Serializable{
                     data class Label(val text: String,
                                      val card: String,
                                      val detial: Any,
@@ -133,6 +135,16 @@ data class HomeBean(val issueList: ArrayList<Issue>,
 
             }
         }
+
+
     }
 
+
 }
+
+
+//    "issueList": [],
+//    "nextPageUrl": "http://baobab.kaiyanapp.com/api/v2/feed?date=1503104400000&num=1",
+//    "nextPublishTime": 1503277200000,
+//    "newestIssueType": "morning",
+//    "dialog": null
