@@ -14,6 +14,7 @@ import com.hazz.kotlinmvp.mvp.model.bean.HomeBean
 import com.hazz.kotlinmvp.mvp.presenter.HomePresenter
 import com.hazz.kotlinmvp.net.exception.ErrorStatus
 import com.hazz.kotlinmvp.showToast
+import com.hazz.kotlinmvp.ui.activity.SearchActivity
 import com.hazz.kotlinmvp.ui.adapter.HomeAdapter
 import com.hazz.kotlinmvp.utils.StatusBarUtil
 import com.orhanobut.logger.Logger

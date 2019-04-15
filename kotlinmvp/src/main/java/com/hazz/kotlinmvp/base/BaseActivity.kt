@@ -42,13 +42,13 @@ abstract class BaseActivity : AppCompatActivity(), EasyPermissions.PermissionCal
 
     abstract fun start()
 
-    fun openKeyBoard(mEditText: EditText, mContext: Context) {
+    protected fun openKeyBoard(mEditText: EditText, mContext: Context) {
         val imm = mContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.showSoftInput(mEditText, InputMethodManager.RESULT_SHOWN)
         imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY)
     }
 
-    fun closeKeyBoard(mEditText: EditText, mContext: Context) {
+    protected fun closeKeyBoard(mEditText: EditText, mContext: Context) {
         val imm = mContext.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         imm.hideSoftInputFromWindow(mEditText.windowToken, 0)
     }
