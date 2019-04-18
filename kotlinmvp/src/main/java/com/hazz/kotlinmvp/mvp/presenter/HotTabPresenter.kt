@@ -20,5 +20,4 @@ class HotTabPresenter : BasePresenter<HotTabContract.View>(), HotTabContract.Pre
                 })
         addSubscription(disposable)
     }
-
 }
